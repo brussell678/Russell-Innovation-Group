@@ -119,8 +119,9 @@
         if (thankYou) {
           thankYou.hidden = false;
           thankYou.textContent =
-            "We could not submit the form right now. Please email contact@russellinnovationgroup.com.";
+            "We could not submit the form right now. Please email contact@russell-innovation-group.com.";
         }
       });
   });
 })();
+
