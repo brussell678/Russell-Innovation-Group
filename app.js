@@ -1,29 +1,4 @@
 (function () {
-  var themeToggle = document.getElementById("theme-toggle");
-  var storedTheme = localStorage.getItem("rig-theme");
-  var prefersDark =
-    window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-  var currentTheme = storedTheme === "dark" || storedTheme === "light" ? storedTheme : prefersDark ? "dark" : "light";
-
-  function applyTheme(theme) {
-    currentTheme = theme;
-    document.documentElement.setAttribute("data-theme", currentTheme);
-    if (!themeToggle) return;
-    var isDark = currentTheme === "dark";
-    themeToggle.setAttribute("aria-pressed", isDark ? "true" : "false");
-    themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
-    themeToggle.textContent = isDark ? "Light" : "Dark";
-  }
-
-  applyTheme(currentTheme);
-  if (themeToggle) {
-    themeToggle.addEventListener("click", function () {
-      var nextTheme = currentTheme === "dark" ? "light" : "dark";
-      localStorage.setItem("rig-theme", nextTheme);
-      applyTheme(nextTheme);
-    });
-  }
-
   var brandLogos = document.querySelectorAll(".brand-logo");
   brandLogos.forEach(function (logo) {
     var tried = 0;
