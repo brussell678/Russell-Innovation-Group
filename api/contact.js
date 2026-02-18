@@ -49,9 +49,10 @@ module.exports = async function handler(req, res) {
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const toEmail = process.env.CONTACT_TO_EMAIL || "contact@russell-innovation-group.com";
+  const toEmail =
+    process.env.CONTACT_TO_EMAIL || "brandon.t.russell77@gmail.com";
   const fromEmail =
-    process.env.CONTACT_FROM_EMAIL || "Website Contact <noreply@russell-innovation-group.com>";
+    process.env.CONTACT_FROM_EMAIL || "RIG Website <onboarding@resend.dev>";
 
   if (!apiKey) {
     return res.status(500).json({ error: "Email service is not configured" });
@@ -86,7 +87,10 @@ module.exports = async function handler(req, res) {
 
     if (!response.ok) {
       const details = await response.text();
-      return res.status(502).json({ error: "Failed to send email", details });
+      return res.status(502).json({
+        error: "Failed to send email",
+        details
+      });
     }
 
     return res.status(200).json({ ok: true });

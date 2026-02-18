@@ -100,18 +100,29 @@
       body: JSON.stringify(payload)
     })
       .then(function (response) {
-        if (!response.ok) throw new Error("Submission failed");
-        form.reset();
-        if (thankYou) {
-          thankYou.hidden = false;
-          thankYou.textContent = "Thank you. Your message has been received.";
-        }
+        return response
+          .json()
+          .catch(function () {
+            return {};
+          })
+          .then(function (data) {
+            if (!response.ok) {
+              var detail = data && (data.error || data.details);
+              throw new Error(detail || "Submission failed");
+            }
+            form.reset();
+            if (thankYou) {
+              thankYou.hidden = false;
+              thankYou.textContent = "Thank you. Your message has been received.";
+            }
+          });
       })
-      .catch(function () {
+      .catch(function (error) {
         if (thankYou) {
           thankYou.hidden = false;
-          thankYou.textContent =
-            "We could not submit the form right now. Please email contact@russell-innovation-group.com.";
+          thankYou.textContent = "Submission failed: " + (error && error.message
+            ? error.message
+            : "Please email contact@russell-innovation-group.com.");
         }
       });
   });
