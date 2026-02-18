@@ -44,7 +44,7 @@
 
   var fields = ["name", "email", "organization", "message"];
   var thankYou = document.getElementById("form-success");
-  var endpoint = form.getAttribute("data-endpoint");
+  var endpoint = form.getAttribute("data-endpoint") || "/api/contact";
 
   function setError(id, message) {
     var slot = document.querySelector('[data-error-for="' + id + '"]');
@@ -77,7 +77,8 @@
     });
 
     var honeypot = document.getElementById("website");
-    if (honeypot && honeypot.value.trim()) {
+    var honeypotValue = honeypot ? honeypot.value.trim() : "";
+    if (honeypotValue) {
       valid = false;
     }
 
@@ -88,16 +89,7 @@
       var input = document.getElementById(id);
       payload[id] = input ? input.value.trim() : "";
     });
-
-    if (!endpoint || endpoint.indexOf("your_form_id") !== -1) {
-      form.reset();
-      if (thankYou) {
-        thankYou.hidden = false;
-        thankYou.textContent =
-          "Thank you. Form endpoint is not configured yet, but validation is working.";
-      }
-      return;
-    }
+    payload.website = honeypotValue;
 
     fetch(endpoint, {
       method: "POST",
