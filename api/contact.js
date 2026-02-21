@@ -8,6 +8,12 @@ function sanitize(value) {
   return String(value || "").trim();
 }
 
+function isValidFromField(value) {
+  // Accept either "email@example.com" or "Name <email@example.com>".
+  return /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(value) ||
+    /^.+\s<[^<>\s@]+@[^<>\s@]+\.[^<>\s@]+>$/.test(value);
+}
+
 module.exports = async function handler(req, res) {
   if (req.method === "GET") {
     return res.status(200).json({
@@ -62,8 +68,10 @@ module.exports = async function handler(req, res) {
   const apiKey = process.env.RESEND_API_KEY;
   const toEmail =
     process.env.CONTACT_TO_EMAIL || "brandon.t.russell77@gmail.com";
-  const fromEmail =
-    process.env.CONTACT_FROM_EMAIL || "RIG Website <onboarding@resend.dev>";
+  const fromEmailCandidate = sanitize(process.env.CONTACT_FROM_EMAIL);
+  const fromEmail = isValidFromField(fromEmailCandidate)
+    ? fromEmailCandidate
+    : "RIG Website <onboarding@resend.dev>";
 
   if (!apiKey) {
     return res.status(500).json({ error: "Email service is not configured" });
