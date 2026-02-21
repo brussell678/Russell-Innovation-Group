@@ -9,6 +9,17 @@ function sanitize(value) {
 }
 
 module.exports = async function handler(req, res) {
+  if (req.method === "GET") {
+    return res.status(200).json({
+      ok: true,
+      env: {
+        hasResendApiKey: Boolean(process.env.RESEND_API_KEY),
+        hasContactToEmail: Boolean(process.env.CONTACT_TO_EMAIL),
+        hasContactFromEmail: Boolean(process.env.CONTACT_FROM_EMAIL)
+      }
+    });
+  }
+
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
     return res.status(405).json({ error: "Method not allowed" });
