@@ -107,7 +107,7 @@
           })
           .then(function (data) {
             if (!response.ok) {
-              var detail = data && (data.error || data.details);
+              var detail = data && (data.details || data.error);
               throw new Error(detail || "Submission failed");
             }
             form.reset();

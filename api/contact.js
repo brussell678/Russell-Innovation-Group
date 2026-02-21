@@ -97,7 +97,13 @@ module.exports = async function handler(req, res) {
     });
 
     if (!response.ok) {
-      const details = await response.text();
+      let details = "";
+      try {
+        const errorBody = await response.json();
+        details = errorBody.message || JSON.stringify(errorBody);
+      } catch (_error) {
+        details = await response.text();
+      }
       return res.status(502).json({
         error: "Failed to send email",
         details
