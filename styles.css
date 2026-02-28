@@ -395,6 +395,10 @@ main {
   padding: 18px;
 }
 
+.image-lightbox[hidden] {
+  display: none !important;
+}
+
 .image-lightbox-inner {
   position: relative;
   width: min(96vw, 1180px);
@@ -406,6 +410,11 @@ main {
   object-fit: contain;
   border-radius: 12px;
   background: #0f1620;
+}
+
+.image-lightbox img:not([src]),
+.image-lightbox img[src=""] {
+  display: none;
 }
 
 .image-lightbox-close {

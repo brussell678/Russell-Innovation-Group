@@ -49,7 +49,7 @@
   function closeLightbox() {
     if (!lightbox) return;
     lightbox.hidden = true;
-    if (lightboxImg) lightboxImg.src = "";
+    if (lightboxImg) lightboxImg.removeAttribute("src");
     document.body.style.overflow = "";
   }
 
