@@ -39,6 +39,42 @@
     if (target.toLowerCase() === path.toLowerCase()) link.classList.add("active");
   });
 
+  var lightbox = document.getElementById("image-lightbox");
+  var lightboxImg = document.getElementById("image-lightbox-img");
+  var lightboxClose = document.getElementById("image-lightbox-close");
+  var lightboxTriggers = document.querySelectorAll("[data-lightbox-trigger]");
+
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.hidden = true;
+    if (lightboxImg) lightboxImg.src = "";
+    document.body.style.overflow = "";
+  }
+
+  if (lightbox && lightboxImg) {
+    lightboxTriggers.forEach(function (trigger) {
+      trigger.addEventListener("click", function () {
+        var src = trigger.getAttribute("data-lightbox-src");
+        if (!src) return;
+        lightboxImg.src = src;
+        lightbox.hidden = false;
+        document.body.style.overflow = "hidden";
+      });
+    });
+
+    if (lightboxClose) {
+      lightboxClose.addEventListener("click", closeLightbox);
+    }
+
+    lightbox.addEventListener("click", function (event) {
+      if (event.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && !lightbox.hidden) closeLightbox();
+    });
+  }
+
   var form = document.getElementById("contact-form");
   if (!form) return;
 

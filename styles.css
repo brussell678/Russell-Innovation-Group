@@ -332,6 +332,21 @@ main {
   border-top: 0;
 }
 
+.gmai-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.gmai-media-card {
+  padding: 14px;
+}
+
+.gmai-media-card h3 {
+  margin: 0 0 10px;
+}
+
 .project-list h2 {
   margin: 0;
   font-size: 1.12rem;
@@ -349,16 +364,62 @@ main {
   border: 1px solid var(--line);
 }
 
+.project-infographic-trigger {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  width: 100%;
+  cursor: zoom-in;
+}
+
 .project-infographic {
   width: 100%;
-  max-height: 370px;
+  max-height: 340px;
   object-fit: cover;
+  border-radius: 12px;
 }
 
 .project-infographic-note {
   margin-top: 8px;
   color: var(--muted);
   font-size: 0.88rem;
+}
+
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(12, 20, 27, 0.9);
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+
+.image-lightbox-inner {
+  position: relative;
+  width: min(96vw, 1180px);
+}
+
+.image-lightbox img {
+  width: 100%;
+  max-height: 92vh;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #0f1620;
+}
+
+.image-lightbox-close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #10222c;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .form-wrap {
@@ -437,6 +498,10 @@ textarea:focus {
 @media (max-width: 980px) {
   .hero,
   .feature {
+    grid-template-columns: 1fr;
+  }
+
+  .gmai-layout {
     grid-template-columns: 1fr;
   }
 

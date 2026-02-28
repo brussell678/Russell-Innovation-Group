@@ -40,28 +40,50 @@
 
     <main>
       <div class="container">
-        <section class="panel feature">
-          <article>
+        <section class="panel form-wrap">
             <h1>Featured Projects</h1>
             <div class="project-list">
               <section class="project-entry">
                 <h2>GMAI</h2>
-                <p class="lead">
-                  AI-enabled knowledge assistant for technical publications with citation-backed
-                  retrieval and answer generation.
-                </p>
-                <p>
-                  Delivered a retrieval-assisted workflow that transformed technical manuals into a
-                  searchable, question-answering interface with citations and source traceability.
-                </p>
-                <ul>
-                  <li>Reduced search time for operational information retrieval.</li>
-                  <li>Improved consistency of answers using controlled source indexing.</li>
-                  <li>Enabled rapid updates through modular ingestion pipelines.</li>
-                  <li>RAG architecture for accurate, source-grounded responses.</li>
-                  <li>Preprocessing pipelines for structured ingestion and retrieval quality.</li>
-                  <li>Search index optimization and UX for mission-speed information access.</li>
-                </ul>
+                <div class="gmai-layout">
+                  <div>
+                    <p class="lead">
+                      AI-enabled knowledge assistant for technical publications with citation-backed
+                      retrieval and answer generation.
+                    </p>
+                    <p>
+                      Delivered a retrieval-assisted workflow that transformed technical manuals
+                      into a searchable, question-answering interface with citations and source
+                      traceability.
+                    </p>
+                    <ul>
+                      <li>Reduced search time for operational information retrieval.</li>
+                      <li>Improved consistency of answers using controlled source indexing.</li>
+                      <li>Enabled rapid updates through modular ingestion pipelines.</li>
+                      <li>RAG architecture for accurate, source-grounded responses.</li>
+                      <li>Preprocessing pipelines for structured ingestion and retrieval quality.</li>
+                      <li>Search index optimization and UX for mission-speed information access.</li>
+                    </ul>
+                  </div>
+                  <aside class="card gmai-media-card">
+                    <h3>GMAI Infographic</h3>
+                    <button
+                      class="project-infographic-trigger"
+                      type="button"
+                      data-lightbox-trigger
+                      data-lightbox-src="./Images/gmai-infographic.jpg"
+                      aria-label="Open full-size GMAI infographic"
+                    >
+                      <img
+                        class="project-infographic"
+                        src="./Images/gmai-infographic.jpg"
+                        onerror="this.src='./Images/GMAI.jpg'; this.closest('[data-lightbox-trigger]').setAttribute('data-lightbox-src','./Images/GMAI.jpg');"
+                        alt="GMAI project infographic"
+                      />
+                    </button>
+                    <p class="project-infographic-note">Click image to view full size.</p>
+                  </aside>
+                </div>
               </section>
 
               <section class="project-entry">
@@ -80,41 +102,16 @@
                 </p>
               </section>
             </div>
-          </article>
-          <article class="card">
-            <h2>GMAI Infographic</h2>
-            <a
-              class="project-infographic-link"
-              href="./Images/gmai-infographic.jpg"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                class="project-infographic"
-                src="./Images/gmai-infographic.jpg"
-                onerror="this.src='./Images/GMAI.jpg'; this.parentElement.href='./Images/GMAI.jpg';"
-                alt="GMAI project infographic"
-              />
-            </a>
-            <p class="project-infographic-note">Click image to view full size.</p>
-            <p>
-              <a
-                class="btn btn-secondary"
-                href="./Images/gmai-infographic.jpg"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Open full-size image</a
-              >
-              <a
-                class="btn btn-secondary"
-                href="./Images/GMAI.jpg"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Alternate image link</a
-              >
-            </p>
-          </article>
         </section>
+      </div>
+
+      <div class="image-lightbox" id="image-lightbox" hidden>
+        <div class="image-lightbox-inner">
+          <button class="image-lightbox-close" id="image-lightbox-close" type="button" aria-label="Close full-size image">
+            X
+          </button>
+          <img id="image-lightbox-img" alt="Full-size project infographic" />
+        </div>
       </div>
     </main>
 
