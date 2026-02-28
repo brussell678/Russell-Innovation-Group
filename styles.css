@@ -332,6 +332,21 @@ main {
   line-height: 1.6;
 }
 
+.about-top {
+  align-items: start;
+}
+
+.about-intro p {
+  margin: 0 0 10px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.about-details {
+  margin-top: 18px;
+  padding: 24px;
+}
+
 .project-list {
   margin-top: 16px;
   display: grid;
