@@ -385,6 +385,10 @@ main {
   font-size: 0.88rem;
 }
 
+.project-contact-btn {
+  margin-top: 10px;
+}
+
 .image-lightbox {
   position: fixed;
   inset: 0;
