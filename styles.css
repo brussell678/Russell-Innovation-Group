@@ -332,18 +332,18 @@ main {
   border-top: 0;
 }
 
-.gmai-layout {
+.project-layout {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 16px;
   align-items: start;
 }
 
-.gmai-media-card {
+.project-media-card {
   padding: 14px;
 }
 
-.gmai-media-card h3 {
+.project-media-card h3 {
   margin: 0 0 10px;
 }
 
@@ -510,7 +510,7 @@ textarea:focus {
     grid-template-columns: 1fr;
   }
 
-  .gmai-layout {
+  .project-layout {
     grid-template-columns: 1fr;
   }
 
