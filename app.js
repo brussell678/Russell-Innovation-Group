@@ -43,6 +43,8 @@
   var lightboxImg = document.getElementById("image-lightbox-img");
   var lightboxClose = document.getElementById("image-lightbox-close");
   var lightboxTriggers = document.querySelectorAll("[data-lightbox-trigger]");
+  var lightboxFallbackSrc = "";
+  var lightboxFallbackUsed = false;
 
   function closeLightbox() {
     if (!lightbox) return;
@@ -52,10 +54,24 @@
   }
 
   if (lightbox && lightboxImg) {
+    lightboxImg.addEventListener("error", function () {
+      if (!lightboxFallbackUsed && lightboxFallbackSrc) {
+        lightboxFallbackUsed = true;
+        lightboxImg.src = lightboxFallbackSrc;
+        return;
+      }
+      closeLightbox();
+    });
+
     lightboxTriggers.forEach(function (trigger) {
       trigger.addEventListener("click", function () {
-        var src = trigger.getAttribute("data-lightbox-src");
+        var thumbnail = trigger.querySelector("img");
+        var src =
+          (thumbnail && (thumbnail.currentSrc || thumbnail.src)) ||
+          trigger.getAttribute("data-lightbox-src");
         if (!src) return;
+        lightboxFallbackSrc = trigger.getAttribute("data-lightbox-fallback") || "";
+        lightboxFallbackUsed = false;
         lightboxImg.src = src;
         lightbox.hidden = false;
         document.body.style.overflow = "hidden";
