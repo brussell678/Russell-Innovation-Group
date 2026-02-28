@@ -319,7 +319,17 @@ main {
 .project-list {
   margin-top: 16px;
   display: grid;
-  gap: 10px;
+  gap: 16px;
+}
+
+.project-entry {
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+
+.project-entry:first-child {
+  padding-top: 0;
+  border-top: 0;
 }
 
 .project-list h2 {
