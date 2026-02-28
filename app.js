@@ -27,6 +27,36 @@
     }
   });
 
+  var projectInfographic = document.querySelector(".project-infographic");
+  if (projectInfographic) {
+    var projectImageLink = projectInfographic.closest("a");
+    var sources = [
+      "./images/gmai.png",
+      "./images/gmai-infographic.jpg",
+      "./images/GMAI.jpg",
+      "./images/GMAI.png"
+    ];
+    var sourceIndex = 0;
+
+    function applyProjectImage(nextIndex) {
+      if (nextIndex < 0 || nextIndex >= sources.length) return false;
+      sourceIndex = nextIndex;
+      projectInfographic.src = sources[sourceIndex];
+      if (projectImageLink) projectImageLink.href = sources[sourceIndex];
+      return true;
+    }
+
+    projectInfographic.addEventListener("error", function () {
+      if (!applyProjectImage(sourceIndex + 1)) {
+        projectInfographic.style.display = "none";
+      }
+    });
+
+    if (projectInfographic.complete && projectInfographic.naturalWidth === 0) {
+      applyProjectImage(sourceIndex + 1);
+    }
+  }
+
   var path = window.location.pathname.replace(/\/+$/, "");
   if (!path || path === "/") path = "/index.html";
   var links = document.querySelectorAll("[data-nav]");
