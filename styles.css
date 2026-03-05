@@ -352,6 +352,10 @@ main {
   padding: 24px;
 }
 
+.home-spacer {
+  min-height: 84px;
+}
+
 .project-list {
   margin-top: 16px;
   display: grid;
