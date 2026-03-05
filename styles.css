@@ -24,6 +24,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  min-height: 100%;
   font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   background: radial-gradient(circle at 85% 0%, var(--bg-glow) 0%, var(--bg) 45%, var(--bg) 100%);
   color: var(--ink);
@@ -32,6 +33,9 @@ body {
 body {
   position: relative;
   isolation: isolate;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 body::before {
@@ -130,6 +134,7 @@ img {
 
 main {
   padding: 36px 0 60px;
+  flex: 1 0 auto;
 }
 
 .hero {
