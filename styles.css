@@ -1592,9 +1592,8 @@ textarea:focus {
     display: none;
     position: fixed;
     inset: 0;
-    z-index: 25;
-    background: rgba(7, 15, 28, 0.97);
-    backdrop-filter: blur(14px);
+    z-index: 200;
+    background: #07111c;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -1605,26 +1604,31 @@ textarea:focus {
     display: flex;
   }
 
-  .site-nav a {
+  /* Higher specificity (.site-nav.nav-open a = 0-2-1) beats desktop
+     .site-nav a (0-1-1) and forces links white on the dark overlay */
+  .site-nav.nav-open a {
     font-size: 1.4rem;
     font-weight: 700;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.85);
     padding: 14px 36px;
     border-radius: 12px;
     width: 100%;
     max-width: 300px;
     text-align: center;
     font-family: 'Syne', sans-serif;
+    background: transparent;
+    display: block;
   }
 
-  .site-nav a:hover {
+  .site-nav.nav-open a:hover,
+  .site-nav.nav-open a:focus-visible {
     color: #ffffff;
     background: rgba(255, 255, 255, 0.07);
   }
 
-  .site-nav a.active {
+  .site-nav.nav-open a.active {
     color: var(--accent);
-    background: rgba(0, 163, 163, 0.12);
+    background: rgba(0, 163, 163, 0.14);
   }
 
   .stat-grid,
@@ -1757,6 +1761,7 @@ textarea:focus {
     color: rgba(255, 255, 255, 0.75);
     font-size: 1.05rem;
     cursor: pointer;
+    z-index: 201;
     transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
   }
 
