@@ -5,27 +5,64 @@
   var siteNav   = document.getElementById('primary-nav');
 
   if (navToggle && siteNav) {
+    var navOriginalParent = siteNav.parentNode;
+    var navTeleported = false;
+
+    // Inject a dedicated close button inside the overlay so it stays visible
+    // above the dark backdrop regardless of stacking context
+    var navCloseBtn = document.createElement('button');
+    navCloseBtn.className = 'nav-close-btn';
+    navCloseBtn.setAttribute('aria-label', 'Close menu');
+    navCloseBtn.textContent = '✕'; // ✕
+    siteNav.appendChild(navCloseBtn);
+
+    function closeNav() {
+      navToggle.setAttribute('aria-expanded', 'false');
+      siteNav.classList.remove('nav-open');
+      document.body.style.overflow = '';
+      // Teleport nav back to header so desktop layout is unaffected
+      if (navTeleported) {
+        navOriginalParent.appendChild(siteNav);
+        navTeleported = false;
+      }
+    }
+
     navToggle.addEventListener('click', function () {
       var isOpen = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-      siteNav.classList.toggle('nav-open', !isOpen);
-      document.body.style.overflow = isOpen ? '' : 'hidden';
+      if (isOpen) {
+        closeNav();
+      } else {
+        navToggle.setAttribute('aria-expanded', 'true');
+        // Teleport nav to <body> so position:fixed uses the viewport as its
+        // containing block — backdrop-filter on .site-header would otherwise
+        // trap position:fixed children inside the header's stacking context
+        document.body.appendChild(siteNav);
+        navTeleported = true;
+        siteNav.classList.add('nav-open');
+        document.body.style.overflow = 'hidden';
+      }
     });
 
+    navCloseBtn.addEventListener('click', closeNav);
+
     siteNav.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        navToggle.setAttribute('aria-expanded', 'false');
-        siteNav.classList.remove('nav-open');
-        document.body.style.overflow = '';
-      });
+      link.addEventListener('click', closeNav);
     });
 
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && siteNav.classList.contains('nav-open')) {
-        navToggle.setAttribute('aria-expanded', 'false');
-        siteNav.classList.remove('nav-open');
-        document.body.style.overflow = '';
+        closeNav();
       }
+    });
+
+    // Tap on the backdrop (not a link or button) also closes
+    siteNav.addEventListener('click', function (e) {
+      if (e.target === siteNav) { closeNav(); }
+    });
+
+    // If the viewport is resized to desktop while the nav is open, close cleanly
+    window.addEventListener('resize', function () {
+      if (navTeleported && window.innerWidth > 640) { closeNav(); }
     });
   }
 
