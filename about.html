@@ -17,6 +17,9 @@
     <meta property="og:url" content="https://russell-innovation-group.com/about" />
     <meta property="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="https://russell-innovation-group.com/about" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/png" href="./browserlogo.png" />
   </head>
@@ -24,16 +27,29 @@
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="./index.html">
-          <img class="brand-logo" src="./logo.jpg" alt="Russell Innovation Group logo" />
+          <img class="brand-logo" src="./browserlogo.png" alt="Russell Innovation Group logo" />
           <span>
             Russell Innovation Group
             <small>Mission-Driven Technical Delivery</small>
           </span>
         </a>
-        <nav class="site-nav" aria-label="Primary">
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="site-nav" id="primary-nav" aria-label="Primary">
           <a data-nav href="./index.html">Home</a>
           <a data-nav href="./about.html">About</a>
+          <a data-nav href="./solutions.html">Solutions</a>
           <a data-nav href="./projects.html">Projects</a>
+          <a data-nav href="./careers.html">Careers</a>
           <a data-nav href="./contact.html">Contact</a>
         </nav>
       </div>
@@ -41,163 +57,265 @@
 
     <main>
       <div class="container">
-        <section class="panel feature about-top">
-          <article class="about-intro">
-            <h1>About Russell Innovation Group</h1>
+
+        <!-- Founder Hero -->
+        <section class="founder-hero panel reveal">
+          <div class="founder-hero-photo">
+            <img
+              class="founder-hero-headshot"
+              src="./assets/brandon-russell-headshot.png"
+              alt="Brandon Russell, Founder — Russell Innovation Group"
+            />
+          </div>
+          <div class="founder-hero-content">
+            <p class="founder-eyebrow">Founder &amp; Principal Consultant</p>
+            <h1>Brandon Russell</h1>
+            <div class="founder-badges">
+              <span class="founder-badge">USMC Veteran</span>
+              <span class="founder-badge">PMP Credentialed</span>
+              <span class="founder-badge">RIG LLC &middot; NC</span>
+            </div>
+            <p class="founder-bio">
+              Brandon founded Russell Innovation Group to bridge strategy and implementation for
+              organizations that need results, not buzzwords. A US Marine with deep experience in
+              high-accountability operational environments, he brings mission-first discipline and
+              execution-aware thinking to every engagement.
+            </p>
+            <ul class="founder-credentials-list">
+              <li>AI/ML strategy and implementation</li>
+              <li>BI analytics for readiness and operational insight</li>
+              <li>Data-to-decision modernization</li>
+              <li>People-first leadership and change management</li>
+            </ul>
+            <div class="founder-footer">
+              <span class="founder-location">Sneads Ferry, NC</span>
+              <a
+                class="btn btn-secondary"
+                href="https://www.linkedin.com/in/brandon-t-russell7/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >View LinkedIn Profile ↗</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Company intro -->
+        <section class="about-intro-strip panel reveal">
+          <h2>About Russell Innovation Group</h2>
+          <div class="about-intro-cols">
             <p class="lead">
               Russell Innovation Group (RIG) is a mission-driven consulting and technical delivery
               firm that helps organizations turn complexity into operational advantage.
             </p>
             <p>
               We advise leaders navigating modernization, AI adoption, data transformation, and
-              organizational change, and we stay with them through disciplined implementation when
-              required.
+              organizational change — and stay through disciplined implementation when required.
+              Where others sell ideas, we design pathways that can actually be executed.
             </p>
-            <p>
-              We do not offer abstract strategy divorced from reality. We provide grounded,
-              execution-aware guidance shaped by real-world operational experience in
-              high-consequence environments.
-            </p>
-            <p>Where others sell ideas, we design pathways that can actually be executed.</p>
-          </article>
-          <article class="card founder-card">
-            <img
-              class="founder-headshot"
-              src="./assets/brandon-russell-headshot.png"
-              alt="Brandon Russell professional headshot"
-            />
-            <h2>Founder Profile</h2>
-            <p>
-              Brandon Russell founded Russell Innovation Group to bridge strategy and
-              implementation for organizations that need results, not buzzwords. The firm focuses
-              on usable systems, clear communication, and delivery that stands up in operational
-              settings.
-            </p>
-            <p><strong>Location:</strong> Sneads Ferry, North Carolina, United States</p>
-            <ul>
-              <li>AI/ML strategy and implementation</li>
-              <li>BI analytics for readiness and operational insight</li>
-              <li>Data-to-decision modernization</li>
-              <li>People-first leadership and change management</li>
-            </ul>
-            <a
-              class="btn btn-secondary"
-              href="https://www.linkedin.com/in/brandon-t-russell7/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >View LinkedIn Profile</a
-            >
-          </article>
+          </div>
         </section>
 
-        <section class="panel about-details">
-          <article class="about-content">
-            <h2>Our Mission</h2>
-            <p>
-              To increase organizational capability by aligning strategy, technology, and execution
-              into secure, scalable systems that deliver measurable impact.
-            </p>
-            <p>
-              We exist to help leaders make confident decisions in environments defined by rapid
-              technological change, institutional friction, and operational risk.
-            </p>
+        <!-- Tabbed detail sections -->
+        <section class="about-tabs-section reveal">
+          <div class="tabs-nav" role="tablist" aria-label="Company information">
+            <button class="tab-btn active" role="tab" id="tab-mission" data-tab="mission" aria-selected="true" aria-controls="panel-mission">Mission &amp; Vision</button>
+            <button class="tab-btn" role="tab" id="tab-strategy" data-tab="strategy" aria-selected="false" aria-controls="panel-strategy">Strategy</button>
+            <button class="tab-btn" role="tab" id="tab-philosophy" data-tab="philosophy" aria-selected="false" aria-controls="panel-philosophy">Philosophy</button>
+            <button class="tab-btn" role="tab" id="tab-difference" data-tab="difference" aria-selected="false" aria-controls="panel-difference">What Makes Us Different</button>
+          </div>
+          <div class="tab-panels">
 
-            <h2>Our Vision</h2>
-            <ul>
-              <li>Make data-informed decisions without drowning in complexity.</li>
-              <li>Apply AI responsibly and securely.</li>
-              <li>Modernize without destabilizing operations.</li>
-              <li>Integrate innovation without sacrificing discipline.</li>
-            </ul>
-            <p>
-              Russell Innovation Group aims to become a trusted advisor and integrator for
-              organizations operating in complex, mission-driven environments, bridging executive
-              intent with operational execution.
-            </p>
+            <!-- Mission & Vision -->
+            <div class="tab-panel active" id="panel-mission" role="tabpanel" aria-labelledby="tab-mission">
+              <div class="tab-content-grid">
+                <div>
+                  <h3>Our Mission</h3>
+                  <p>To increase organizational capability by aligning strategy, technology, and execution into secure, scalable systems that deliver measurable impact.</p>
+                  <p>We exist to help leaders make confident decisions in environments defined by rapid technological change, institutional friction, and operational risk.</p>
+                </div>
+                <div>
+                  <h3>Our Vision</h3>
+                  <ul class="tab-list">
+                    <li>Make data-informed decisions without drowning in complexity.</li>
+                    <li>Apply AI responsibly and securely.</li>
+                    <li>Modernize without destabilizing operations.</li>
+                    <li>Integrate innovation without sacrificing discipline.</li>
+                  </ul>
+                  <p>RIG aims to become a trusted advisor and integrator for organizations operating in complex, mission-driven environments — bridging executive intent with operational execution.</p>
+                </div>
+              </div>
+            </div>
 
-            <h2>Our Strategy</h2>
-            <h3>1. Strategic Advisory &amp; Modernization Consulting</h3>
-            <p>Early decisions determine long-term success.</p>
-            <ul>
-              <li>Assess AI readiness and data maturity.</li>
-              <li>Identify capability gaps and structural friction.</li>
-              <li>Define modernization roadmaps grounded in operational constraints.</li>
-              <li>Evaluate vendor architectures and technology claims.</li>
-              <li>Reduce adoption risk before large capital investments.</li>
-              <li>Align innovation efforts with mission objectives.</li>
-            </ul>
-            <p>
-              Our consulting engagements are structured, decision-focused efforts designed to
-              produce clarity, reduce risk, and establish executable pathways.
-            </p>
+            <!-- Strategy -->
+            <div class="tab-panel" id="panel-strategy" role="tabpanel" aria-labelledby="tab-strategy">
+              <div class="tab-content-grid">
+                <div>
+                  <h3>Strategic Advisory &amp; Modernization</h3>
+                  <p>Early decisions determine long-term success.</p>
+                  <ul class="tab-list">
+                    <li>Assess AI readiness and data maturity.</li>
+                    <li>Identify capability gaps and structural friction.</li>
+                    <li>Define modernization roadmaps grounded in operational constraints.</li>
+                    <li>Evaluate vendor architectures and technology claims.</li>
+                    <li>Reduce adoption risk before large capital investments.</li>
+                    <li>Align innovation efforts with mission objectives.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3>Technical Delivery &amp; Implementation</h3>
+                  <p>When strategy requires execution, we deliver.</p>
+                  <ul class="tab-list">
+                    <li>Data orchestration frameworks.</li>
+                    <li>Secure AI-enabled workflows.</li>
+                    <li>Business intelligence ecosystems.</li>
+                    <li>Decision-support dashboards.</li>
+                    <li>Compliance-aware architectures.</li>
+                    <li>Adoption and change management pathways.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
 
-            <h3>2. Technical Delivery &amp; Implementation</h3>
-            <p>When strategy requires execution, we deliver.</p>
-            <ul>
-              <li>Data orchestration frameworks.</li>
-              <li>Secure AI-enabled workflows.</li>
-              <li>Business intelligence ecosystems.</li>
-              <li>Decision-support dashboards.</li>
-              <li>Compliance-aware architectures.</li>
-              <li>Adoption and change management pathways.</li>
-            </ul>
-            <p>
-              Our technical work is grounded in consulting insights, ensuring alignment between
-              strategic intent and deployed systems.
-            </p>
+            <!-- Philosophy -->
+            <div class="tab-panel" id="panel-philosophy" role="tabpanel" aria-labelledby="tab-philosophy">
+              <p class="tab-intro">Technology alone does not create advantage. These are the foundations we build on:</p>
+              <div class="values-grid">
+                <div class="value-card">
+                  <h4>Mission Alignment</h4>
+                  <p>Every system decision traces back to a mission requirement — not a technology trend.</p>
+                </div>
+                <div class="value-card">
+                  <h4>Structured Decision-Making</h4>
+                  <p>Clarity before action. We define the problem before recommending the solution.</p>
+                </div>
+                <div class="value-card">
+                  <h4>Disciplined Implementation</h4>
+                  <p>Advisory without execution is incomplete. We see the work through to delivery.</p>
+                </div>
+                <div class="value-card">
+                  <h4>Human-Centered Adoption</h4>
+                  <p>People adopt what they understand and trust. We design for both.</p>
+                </div>
+                <div class="value-card">
+                  <h4>Measurable Outcomes</h4>
+                  <p>Impact measured in operational results — not deliverable counts or slide decks.</p>
+                </div>
+                <div class="value-card">
+                  <h4>Long-Term Resilience</h4>
+                  <p>We build systems that outlast leadership cycles and survive funding changes.</p>
+                </div>
+              </div>
+              <p class="tab-closing">Innovation should not be reckless. It should be disciplined — and it should leave organizations more capable and better prepared than before.</p>
+            </div>
 
-            <h2>Our Philosophy</h2>
-            <p>Technology alone does not create advantage.</p>
-            <ul>
-              <li>Clear mission alignment.</li>
-              <li>Structured decision-making.</li>
-              <li>Disciplined implementation.</li>
-              <li>Human-centered adoption.</li>
-              <li>Measurable operational outcomes.</li>
-            </ul>
-            <p>
-              AI, analytics, and modernization efforts only succeed when built on a stable
-              organizational foundation. We help leaders build that foundation first.
-            </p>
+            <!-- What Makes Us Different -->
+            <div class="tab-panel" id="panel-difference" role="tabpanel" aria-labelledby="tab-difference">
+              <div class="difference-list">
+                <div class="difference-item">
+                  <span class="difference-marker">01</span>
+                  <div>
+                    <h4>Operational, Not Academic</h4>
+                    <p>We understand operational environments, not just abstract strategy. Our guidance is shaped by real-world high-accountability experience.</p>
+                  </div>
+                </div>
+                <div class="difference-item">
+                  <span class="difference-marker">02</span>
+                  <div>
+                    <h4>Advisory and Implementation — One Discipline</h4>
+                    <p>No handoffs. No gaps. We advise through the decision and execute through delivery under one engagement model.</p>
+                  </div>
+                </div>
+                <div class="difference-item">
+                  <span class="difference-marker">03</span>
+                  <div>
+                    <h4>Designed for Security and Constraint</h4>
+                    <p>We design for compliance, security, and real-world budget and time constraints — not for ideal conditions that don't exist in the field.</p>
+                  </div>
+                </div>
+                <div class="difference-item">
+                  <span class="difference-marker">04</span>
+                  <div>
+                    <h4>Outcomes Over Optics</h4>
+                    <p>We focus on long-term institutional resilience over short-term optics. Results are measured in mission performance, not deliverable count.</p>
+                  </div>
+                </div>
+                <div class="difference-item">
+                  <span class="difference-marker">05</span>
+                  <div>
+                    <h4>Candid, Reality-Based Guidance</h4>
+                    <p>We protect clients from avoidable risk, even when the truth is inconvenient. No buzzwords. No padding. Just honest assessment.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-            <h2>What Makes Us Different</h2>
-            <ul>
-              <li>We understand operational environments, not just abstract strategy.</li>
-              <li>We integrate advisory and implementation under one discipline.</li>
-              <li>We design for security, compliance, and constraint.</li>
-              <li>We focus on long-term institutional resilience over short-term optics.</li>
-              <li>We measure impact in operational outcomes, not technical deliverables.</li>
-            </ul>
-            <p>
-              Our experience spans leadership, acquisition environments, modernization initiatives,
-              and high-accountability systems, shaping how we approach risk, adoption, and scale.
-            </p>
-
-            <h2>Our Commitment</h2>
-            <ul>
-              <li>Providing candid, reality-based guidance.</li>
-              <li>Protecting clients from avoidable risk.</li>
-              <li>Building systems that endure beyond leadership cycles.</li>
-              <li>Elevating human decision-making through responsible AI.</li>
-              <li>Delivering measurable improvements to mission performance.</li>
-            </ul>
-            <p>
-              Innovation should not be reckless. It should be disciplined. And it should leave
-              organizations more capable, more resilient, and better prepared for the future than
-              they were before.
-            </p>
-          </article>
+          </div>
         </section>
+
       </div>
     </main>
 
+    <section class="cta-band">
+      <div class="container cta-band-inner">
+        <div class="cta-band-text">
+          <h2>Ready to turn complexity into advantage?</h2>
+          <p>Let's talk about your mission, timeline, and constraints.</p>
+        </div>
+        <a class="btn cta-band-btn" href="./contact.html">Start a conversation</a>
+      </div>
+    </section>
+
     <footer class="site-footer">
-      <div class="container footer-inner">
-        <span>contact@russell-innovation-group.com</span>
-        <span>&copy; 2026 Russell Innovation Group LLC</span>
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <a class="footer-logo-link" href="./index.html">
+            <img class="footer-logo" src="./browserlogo.png" alt="Russell Innovation Group logo" />
+            <span class="footer-brand-name">Russell Innovation Group</span>
+          </a>
+          <p class="footer-tagline">Mission-Driven Technical Delivery</p>
+          <p class="footer-desc">AI, BI, and technical consulting for government and enterprise organizations that demand execution-aware results.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./solutions.html">Solutions</a></li>
+            <li><a href="./projects.html">Projects</a></li>
+            <li><a href="./careers.html">Careers</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Contact</h4>
+          <ul class="footer-contact-list">
+            <li><a href="mailto:contact@russell-innovation-group.com">contact@russell-innovation-group.com</a></li>
+            <li>Sneads Ferry, NC</li>
+          </ul>
+          <a
+            class="footer-linkedin-btn"
+            href="https://www.linkedin.com/in/brandon-t-russell7/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >LinkedIn Profile ↗</a>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Company</h4>
+          <ul class="footer-contact-list">
+            <li>Russell Innovation Group LLC</li>
+            <li>AI · BI · Technical Consulting</li>
+          </ul>
+          <span class="footer-badge">Marine-Founded</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <span>&copy; 2026 Russell Innovation Group LLC. All rights reserved.</span>
+          <span>contact@russell-innovation-group.com</span>
+        </div>
       </div>
     </footer>
-    <script src="app.js?v=20260218" defer></script>
+    <script src="app.js?v=20260618" defer></script>
   </body>
 </html>
 

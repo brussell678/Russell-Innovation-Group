@@ -17,6 +17,9 @@
     <meta property="og:url" content="https://russell-innovation-group.com/projects" />
     <meta property="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="https://russell-innovation-group.com/projects" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/png" href="./browserlogo.png" />
   </head>
@@ -24,16 +27,29 @@
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="./index.html">
-          <img class="brand-logo" src="./logo.jpg" alt="Russell Innovation Group logo" />
+          <img class="brand-logo" src="./browserlogo.png" alt="Russell Innovation Group logo" />
           <span>
             Russell Innovation Group
             <small>Mission-Driven Technical Delivery</small>
           </span>
         </a>
-        <nav class="site-nav" aria-label="Primary">
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="site-nav" id="primary-nav" aria-label="Primary">
           <a data-nav href="./index.html">Home</a>
           <a data-nav href="./about.html">About</a>
+          <a data-nav href="./solutions.html">Solutions</a>
           <a data-nav href="./projects.html">Projects</a>
+          <a data-nav href="./careers.html">Careers</a>
           <a data-nav href="./contact.html">Contact</a>
         </nav>
       </div>
@@ -41,291 +57,229 @@
 
     <main>
       <div class="container">
-        <section class="panel form-wrap">
-            <h1>Featured Projects</h1>
-            <div class="project-list">
-              <section class="project-entry">
-                <h2>PowerBI Materiel Readiness Brief (MRB)</h2>
-                <div class="project-layout">
-                  <div>
-                    <p class="lead">
-                      This internal Business Intelligence initiative was developed to enhance
-                      efficiency in materiel readiness.
-                    </p>
-                    <p>
-                      The project transforms maintenance data management from traditional,
-                      repetitive manual processing into a more agile, servant-focused approach.
-                    </p>
-                    <ul>
-                      <li>
-                        Significant Time Savings: Reduces the time Marines dedicate to pulling
-                        reports and building workbooks from 35.5 hours to a target end state of 2.5
-                        hours.
-                      </li>
-                      <li>
-                        Improved Accuracy: Automation mitigates the likelihood of human error and
-                        addresses shortfalls caused by out-of-date data inaccuracies.
-                      </li>
-                      <li>
-                        Sustainability and Adaptability: Designed for implementation by any unit
-                        with minimal Power BI proficiency and no specialized training.
-                      </li>
-                      <li>
-                        Collaborative Customization: Units can adopt the foundational `.PBIX` file
-                        and tailor it to fit their specific operational preferences.
-                      </li>
-                      <li>
-                        Strategic Foundation for AI: Provides an accessible entry point into complex
-                        technology and supports future AI adoption across the Marine Corps.
-                      </li>
-                    </ul>
-                    <a class="btn btn-secondary project-contact-btn" href="./contact.html"
-                      >Contact Team</a
-                    >
-                  </div>
-                  <aside class="card project-media-card">
-                    <h3>MRB Infographic</h3>
-                    <button
-                      class="project-infographic-trigger"
-                      type="button"
-                      data-lightbox-trigger
-                      data-lightbox-src="./Images/MRB%20infographic.png"
-                      data-lightbox-fallback="./Images/MRB infographic.png"
-                      aria-label="Open full-size MRB infographic"
-                    >
-                      <img
-                        class="project-infographic"
-                        src="./Images/MRB%20infographic.png"
-                        onerror="this.src='./Images/MRB infographic.png'; this.closest('[data-lightbox-trigger]').setAttribute('data-lightbox-src','./Images/MRB infographic.png');"
-                        alt="MRB project infographic"
-                      />
-                    </button>
-                    <p class="project-infographic-note">Click image to view full size.</p>
-                  </aside>
-                </div>
-              </section>
 
-              <section class="project-entry">
-                <h2>CGIP AI Assistant</h2>
-                <div class="project-layout">
-                  <div>
-                    <p class="lead">
-                      AI-enabled preparation tool for Marine Corps CGIP inspections, generating
-                      dynamic checklists with citation-backed references from official directives.
-                    </p>
-                    <p>
-                      Delivered a customizable AI workflow that transforms inspection guidelines
-                      into interactive checklists, ensuring traceability to sources like MCO 5040.3
-                      and NAVMC 3500 series for consistent, compliant readiness.
-                    </p>
-                    <ul>
-                      <li>
-                        Reduced preparation time by automating checklist generation across admin,
-                        logistics, and training areas.
-                      </li>
-                      <li>
-                        Improved inspection consistency with direct citations and hyperlinks (under
-                        DoD constraints).
-                      </li>
-                      <li>Enabled rapid updates through modular reference ingestion.</li>
-                      <li>Lightweight LLM integration for accurate, source-grounded outputs.</li>
-                      <li>Preprocessing for structured data from unit SOPs and manuals.</li>
-                      <li>
-                        Optimized for DoD environments with open-source tech stack for minimal
-                        costs.
-                      </li>
-                    </ul>
-                    <a class="btn btn-secondary project-contact-btn" href="./contact.html"
-                      >Contact Team</a
-                    >
-                  </div>
-                  <aside class="card project-media-card">
-                    <h3>CGIP Infographic</h3>
-                    <button
-                      class="project-infographic-trigger"
-                      type="button"
-                      data-lightbox-trigger
-                      data-lightbox-src="./Images/CGIP%20Infographic.png"
-                      data-lightbox-fallback="./Images/CGIP Infographic.png"
-                      aria-label="Open full-size CGIP infographic"
-                    >
-                      <img
-                        class="project-infographic"
-                        src="./Images/CGIP%20Infographic.png"
-                        onerror="this.src='./Images/CGIP Infographic.png'; this.closest('[data-lightbox-trigger]').setAttribute('data-lightbox-src','./Images/CGIP Infographic.png');"
-                        alt="CGIP project infographic"
-                      />
-                    </button>
-                    <p class="project-infographic-note">Click image to view full size.</p>
-                  </aside>
-                </div>
-              </section>
+        <div class="page-header reveal">
+          <p class="section-eyebrow">Our Work</p>
+          <h1>Featured Projects</h1>
+          <p class="lead">Delivered and in-development work across AI, business intelligence, and web platforms.</p>
+        </div>
 
-              <section class="project-entry">
-                <h2>MilVector AI (In Development)</h2>
-                <div class="project-layout">
-                  <div>
-                    <p class="lead">
-                      AI-enabled career transition platform for U.S. military service members
-                      translating military experience into civilian career intelligence and
-                      actionable employment pathways.
-                    </p>
-                    <p>
-                      Developing a structured AI workflow that analyzes military service records and
-                      professional history to generate targeted resumes, career pathways, and
-                      transition timelines aligned with each user's goals and separation date.
-                    </p>
-                    <ul>
-                      <li>
-                        Translates military occupational experience into civilian-aligned skills and
-                        competencies using AI-assisted interpretation of VMET, JST, and service
-                        documentation.
-                      </li>
-                      <li>
-                        Generates tailored resumes and job application materials optimized for
-                        modern hiring systems and applicant tracking software.
-                      </li>
-                      <li>
-                        Provides a milestone-based transition roadmap aligned to a service member's
-                        projected end-of-service date.
-                      </li>
-                      <li>
-                        Recommends certifications, education pathways, and networking actions to
-                        strengthen career positioning.
-                      </li>
-                      <li>
-                        Secure document ingestion with guidance for redacting sensitive information
-                        prior to upload.
-                      </li>
-                      <li>
-                        Designed as a scalable web platform capable of supporting thousands of
-                        transitioning service members annually.
-                      </li>
-                    </ul>
-                    <a class="btn btn-secondary project-contact-btn" href="./contact.html"
-                      >Contact Team</a
-                    >
-                    <a
-                      class="btn btn-secondary project-contact-btn"
-                      href="https://www.milvector.org/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >Visit MilVector</a
-                    >
-                  </div>
-                  <aside class="card project-media-card">
-                    <h3>MilVector Infographic</h3>
-                    <button
-                      class="project-infographic-trigger"
-                      type="button"
-                      data-lightbox-trigger
-                      data-lightbox-src="./Images/milvector%20infographic.png"
-                      data-lightbox-fallback="./Images/milvector infographic.png"
-                      aria-label="Open full-size MilVector infographic"
-                    >
-                      <img
-                        class="project-infographic"
-                        src="./Images/milvector%20infographic.png"
-                        onerror="this.src='./Images/milvector infographic.png'; this.closest('[data-lightbox-trigger]').setAttribute('data-lightbox-src','./Images/milvector infographic.png');"
-                        alt="MilVector project infographic"
-                      />
-                    </button>
-                    <p class="project-infographic-note">Click image to view full size.</p>
-                  </aside>
-                </div>
-              </section>
+        <div class="project-card-grid">
 
-              <section class="project-entry">
-                <h2>9point75 Woodworks Website Development</h2>
-                <div class="project-layout">
-                  <div>
-                    <p class="lead">
-                      Design and delivery of a custom website for 9point75 Woodworks LLC, focused
-                      on showcasing high-end craftsmanship and driving qualified client inquiries.
-                    </p>
-                    <ul>
-                      <li>
-                        Led end-to-end product development, from discovery through launch.
-                      </li>
-                      <li>
-                        Translated user requirements into a structured PRD and prioritized product
-                        backlog.
-                      </li>
-                      <li>
-                        Executed using an Agile Scrum framework with iterative sprints.
-                      </li>
-                      <li>
-                        Leveraged an AI-assisted delivery model using Codex for development and
-                        backlog execution, with Grok acting as Scrum Master for sprint planning and
-                        tracking.
-                      </li>
-                      <li>
-                        Conducted regular sprint reviews and stakeholder demos to incorporate
-                        feedback and refine scope.
-                      </li>
-                      <li>
-                        Continuously reprioritized the backlog based on client input and evolving
-                        requirements.
-                      </li>
-                      <li>
-                        Delivered a conversion-focused, SEO-optimized website aligned with business
-                        goals.
-                      </li>
-                    </ul>
-                    <a class="btn btn-secondary project-contact-btn" href="./contact.html"
-                      >Contact Team</a
-                    >
-                    <a
-                      class="btn btn-secondary project-contact-btn"
-                      href="https://www.9point75woodworks.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >Visit 9point75 Woodworks</a
-                    >
-                  </div>
-                  <aside class="card project-media-card">
-                    <h3>9point75 Infographic</h3>
-                    <button
-                      class="project-infographic-trigger"
-                      type="button"
-                      data-lightbox-trigger
-                      data-lightbox-src="./Images/975%20Infographic.png"
-                      data-lightbox-fallback="./Images/975 Infographic.png"
-                      aria-label="Open full-size 9point75 infographic"
-                    >
-                      <img
-                        class="project-infographic"
-                        src="./Images/975%20Infographic.png"
-                        onerror="this.src='./Images/975 Infographic.png'; this.closest('[data-lightbox-trigger]').setAttribute('data-lightbox-src','./Images/975 Infographic.png');"
-                        alt="9point75 Woodworks project infographic"
-                      />
-                    </button>
-                    <p class="project-infographic-note">Click image to view full size.</p>
-                  </aside>
-                </div>
-              </section>
-
+          <!-- PowerBI MRB -->
+          <article class="project-card reveal">
+            <div class="project-card-image">
+              <button
+                class="project-lightbox-trigger"
+                type="button"
+                data-lightbox-trigger
+                data-lightbox-src="./Images/MRB%20infographic.png"
+                data-lightbox-fallback="./Images/MRB infographic.png"
+                aria-label="Open MRB infographic full size"
+              >
+                <img
+                  src="./Images/MRB%20infographic.png"
+                  onerror="this.src='./Images/MRB infographic.png'; this.closest('[data-lightbox-trigger]').setAttribute('data-lightbox-src','./Images/MRB infographic.png');"
+                  alt="MRB project infographic"
+                />
+              </button>
+              <span class="project-status-badge badge-delivered">Delivered</span>
             </div>
-        </section>
+            <div class="project-card-body">
+              <div class="project-card-meta">
+                <span class="project-category-tag">Business Intelligence</span>
+              </div>
+              <h2 class="project-card-title">PowerBI Materiel Readiness Brief</h2>
+              <div class="project-metric-callout">
+                <strong>35.5 → 2.5 hrs</strong>
+                <span>per unit, per reporting cycle</span>
+              </div>
+              <p class="project-card-desc">Transforms maintenance data management from manual processing into an automation-driven approach. Deployable by any unit with minimal Power BI proficiency — no specialized training required. Strategic entry point for future AI adoption.</p>
+              <div class="project-card-actions">
+                <a class="btn btn-secondary" href="./contact.html">Contact Team</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CGIP AI Assistant -->
+          <article class="project-card reveal">
+            <div class="project-card-image">
+              <button
+                class="project-lightbox-trigger"
+                type="button"
+                data-lightbox-trigger
+                data-lightbox-src="./Images/CGIP%20Infographic.png"
+                data-lightbox-fallback="./Images/CGIP Infographic.png"
+                aria-label="Open CGIP infographic full size"
+              >
+                <img
+                  src="./Images/CGIP%20Infographic.png"
+                  onerror="this.src='./Images/CGIP Infographic.png'; this.closest('[data-lightbox-trigger]').setAttribute('data-lightbox-src','./Images/CGIP Infographic.png');"
+                  alt="CGIP project infographic"
+                />
+              </button>
+              <span class="project-status-badge badge-delivered">Delivered</span>
+            </div>
+            <div class="project-card-body">
+              <div class="project-card-meta">
+                <span class="project-category-tag">Applied AI</span>
+              </div>
+              <h2 class="project-card-title">CGIP AI Assistant</h2>
+              <div class="project-metric-callout">
+                <strong>Source-Grounded</strong>
+                <span>citation-backed outputs from MCO &amp; NAVMC directives</span>
+              </div>
+              <p class="project-card-desc">AI-enabled preparation tool for Marine Corps CGIP inspections. Generates dynamic checklists with direct citations from official directives — automated, modular, and optimized for DoD environments with an open-source tech stack.</p>
+              <div class="project-card-actions">
+                <a class="btn btn-secondary" href="./contact.html">Contact Team</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- MilVector AI -->
+          <article class="project-card reveal">
+            <div class="project-card-image">
+              <button
+                class="project-lightbox-trigger"
+                type="button"
+                data-lightbox-trigger
+                data-lightbox-src="./Images/milvector%20infographic.png"
+                data-lightbox-fallback="./Images/milvector infographic.png"
+                aria-label="Open MilVector infographic full size"
+              >
+                <img
+                  src="./Images/milvector%20infographic.png"
+                  onerror="this.src='./Images/milvector infographic.png'; this.closest('[data-lightbox-trigger]').setAttribute('data-lightbox-src','./Images/milvector infographic.png');"
+                  alt="MilVector project infographic"
+                />
+              </button>
+              <span class="project-status-badge badge-development">In Development</span>
+            </div>
+            <div class="project-card-body">
+              <div class="project-card-meta">
+                <span class="project-category-tag">AI Platform</span>
+              </div>
+              <h2 class="project-card-title">MilVector AI</h2>
+              <div class="project-metric-callout">
+                <strong>1M+ vets</strong>
+                <span>eligible for transition support annually</span>
+              </div>
+              <p class="project-card-desc">AI-powered career transition platform for U.S. service members. Translates military experience into civilian career intelligence — tailored resumes, milestone-based transition roadmaps, and certification pathway recommendations.</p>
+              <div class="project-card-actions">
+                <a class="btn btn-secondary" href="./contact.html">Contact Team</a>
+                <a class="btn btn-secondary" href="https://www.milvector.org/" target="_blank" rel="noopener noreferrer">Visit MilVector ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 9point75 Woodworks -->
+          <article class="project-card reveal">
+            <div class="project-card-image">
+              <button
+                class="project-lightbox-trigger"
+                type="button"
+                data-lightbox-trigger
+                data-lightbox-src="./Images/975%20Infographic.png"
+                data-lightbox-fallback="./Images/975 Infographic.png"
+                aria-label="Open 9point75 infographic full size"
+              >
+                <img
+                  src="./Images/975%20Infographic.png"
+                  onerror="this.src='./Images/975 Infographic.png'; this.closest('[data-lightbox-trigger]').setAttribute('data-lightbox-src','./Images/975 Infographic.png');"
+                  alt="9point75 Woodworks project infographic"
+                />
+              </button>
+              <span class="project-status-badge badge-live">Live</span>
+            </div>
+            <div class="project-card-body">
+              <div class="project-card-meta">
+                <span class="project-category-tag">Web Development</span>
+              </div>
+              <h2 class="project-card-title">9point75 Woodworks Website</h2>
+              <div class="project-metric-callout">
+                <strong>Discovery → Launch</strong>
+                <span>full lifecycle via AI-assisted Agile sprints</span>
+              </div>
+              <p class="project-card-desc">End-to-end design and delivery for 9point75 Woodworks LLC. Conversion-focused, SEO-optimized, and built using an AI-assisted Agile model — PRD through production. Demonstrates RIG's full-stack product delivery capability.</p>
+              <div class="project-card-actions">
+                <a class="btn btn-secondary" href="./contact.html">Contact Team</a>
+                <a class="btn btn-secondary" href="https://www.9point75woodworks.com/" target="_blank" rel="noopener noreferrer">Visit Site ↗</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
       </div>
 
       <div class="image-lightbox" id="image-lightbox" hidden>
         <div class="image-lightbox-inner">
-          <button class="image-lightbox-close" id="image-lightbox-close" type="button" aria-label="Close full-size image">
-            X
-          </button>
+          <button class="image-lightbox-close" id="image-lightbox-close" type="button" aria-label="Close full-size image">✕</button>
           <img id="image-lightbox-img" alt="Full-size project infographic" />
         </div>
       </div>
     </main>
 
+    <section class="cta-band">
+      <div class="container cta-band-inner">
+        <div class="cta-band-text">
+          <h2>Interested in what we can build together?</h2>
+          <p>Tell us about your mission and we'll talk through the right approach.</p>
+        </div>
+        <a class="btn cta-band-btn" href="./contact.html">Start a conversation</a>
+      </div>
+    </section>
+
     <footer class="site-footer">
-      <div class="container footer-inner">
-        <span>contact@russell-innovation-group.com</span>
-        <span>&copy; 2026 Russell Innovation Group LLC</span>
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <a class="footer-logo-link" href="./index.html">
+            <img class="footer-logo" src="./browserlogo.png" alt="Russell Innovation Group logo" />
+            <span class="footer-brand-name">Russell Innovation Group</span>
+          </a>
+          <p class="footer-tagline">Mission-Driven Technical Delivery</p>
+          <p class="footer-desc">AI, BI, and technical consulting for government and enterprise organizations that demand execution-aware results.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./solutions.html">Solutions</a></li>
+            <li><a href="./projects.html">Projects</a></li>
+            <li><a href="./careers.html">Careers</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Contact</h4>
+          <ul class="footer-contact-list">
+            <li><a href="mailto:contact@russell-innovation-group.com">contact@russell-innovation-group.com</a></li>
+            <li>Sneads Ferry, NC</li>
+          </ul>
+          <a
+            class="footer-linkedin-btn"
+            href="https://www.linkedin.com/in/brandon-t-russell7/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >LinkedIn Profile ↗</a>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Company</h4>
+          <ul class="footer-contact-list">
+            <li>Russell Innovation Group LLC</li>
+            <li>AI · BI · Technical Consulting</li>
+          </ul>
+          <span class="footer-badge">Marine-Founded</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <span>&copy; 2026 Russell Innovation Group LLC. All rights reserved.</span>
+          <span>contact@russell-innovation-group.com</span>
+        </div>
       </div>
     </footer>
-    <script src="app.js?v=20260218" defer></script>
+    <script src="app.js?v=20260618" defer></script>
   </body>
 </html>
 

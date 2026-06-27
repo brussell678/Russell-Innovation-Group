@@ -17,6 +17,9 @@
     <meta property="og:url" content="https://russell-innovation-group.com/solutions" />
     <meta property="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="https://russell-innovation-group.com/solutions" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/png" href="./browserlogo.png" />
   </head>
@@ -24,16 +27,29 @@
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="./index.html">
-          <img class="brand-logo" src="./logo.jpg" alt="Russell Innovation Group logo" />
+          <img class="brand-logo" src="./browserlogo.png" alt="Russell Innovation Group logo" />
           <span>
             Russell Innovation Group
             <small>Mission-Driven Technical Delivery</small>
           </span>
         </a>
-        <nav class="site-nav" aria-label="Primary">
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="site-nav" id="primary-nav" aria-label="Primary">
           <a data-nav href="./index.html">Home</a>
           <a data-nav href="./about.html">About</a>
+          <a data-nav href="./solutions.html">Solutions</a>
           <a data-nav href="./projects.html">Projects</a>
+          <a data-nav href="./careers.html">Careers</a>
           <a data-nav href="./contact.html">Contact</a>
         </nav>
       </div>
@@ -41,46 +57,160 @@
 
     <main>
       <div class="container">
-        <section class="section">
+
+        <div class="page-header reveal">
+          <p class="section-eyebrow">What We Deliver</p>
           <h1>Solutions</h1>
-          <p class="lead">
-            Services designed for organizations that need technical credibility and operational
-            momentum.
-          </p>
-          <div class="grid-3">
-            <article class="card">
+          <p class="lead">Advisory and delivery services designed for organizations that need technical credibility and measurable operational momentum — not just a slide deck.</p>
+        </div>
+
+        <div class="solutions-grid">
+
+          <article class="solution-card panel reveal">
+            <div>
+              <span class="solution-number">01</span>
               <h2>Technical Consulting</h2>
-              <p>
-                Strategic advisory and implementation planning for modernization, system
-                integration, and program execution.
-              </p>
-            </article>
-            <article class="card">
+            </div>
+            <p>Strategic advisory and implementation planning for modernization, system integration, and program execution under real-world constraints.</p>
+            <ul class="solution-list">
+              <li>Technology readiness assessments</li>
+              <li>Modernization roadmap design</li>
+              <li>System integration planning</li>
+              <li>Risk-informed decision support</li>
+              <li>Program execution strategy</li>
+            </ul>
+            <div>
+              <a class="btn btn-secondary" href="./contact.html">Discuss your needs</a>
+            </div>
+          </article>
+
+          <article class="solution-card panel reveal">
+            <div>
+              <span class="solution-number">02</span>
               <h2>Applied AI Services</h2>
-              <p>
-                AI assistant workflows, retrieval pipelines, and automation design with practical
-                governance and quality controls.
-              </p>
-            </article>
-            <article class="card">
+            </div>
+            <p>AI assistant workflows, retrieval pipelines, and automation design built with practical governance, quality controls, and DoD-aware deployment in mind.</p>
+            <ul class="solution-list">
+              <li>AI assistant design and deployment</li>
+              <li>Retrieval-augmented generation (RAG)</li>
+              <li>Workflow automation and orchestration</li>
+              <li>AI governance and responsible use frameworks</li>
+              <li>Open-source and secure-stack options</li>
+            </ul>
+            <div>
+              <a class="btn btn-secondary" href="./contact.html">Discuss your needs</a>
+            </div>
+          </article>
+
+          <article class="solution-card panel reveal">
+            <div>
+              <span class="solution-number">03</span>
               <h2>Business Intelligence</h2>
-              <p>
-                Data engineering and dashboard systems that support informed decisions across
-                leadership and operational teams.
-              </p>
-            </article>
+            </div>
+            <p>Data engineering and dashboard systems that surface what matters — supporting informed decisions across leadership and operational teams.</p>
+            <ul class="solution-list">
+              <li>Power BI dashboard design and delivery</li>
+              <li>Data pipeline engineering</li>
+              <li>Readiness and performance reporting</li>
+              <li>Data-to-decision frameworks</li>
+              <li>Operational analytics and KPI systems</li>
+            </ul>
+            <div>
+              <a class="btn btn-secondary" href="./contact.html">Discuss your needs</a>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Delivery approach -->
+        <section class="section reveal">
+          <p class="section-eyebrow">Our Approach</p>
+          <h2>Advisory and implementation under one discipline</h2>
+          <p class="lead">We don't hand off strategy to a separate delivery team. One engagement covers both — ensuring the plan and the execution stay aligned from start to finish.</p>
+          <div class="grid-3" style="margin-top: 24px;">
+            <div class="method-step">
+              <span class="method-step-label">Assess</span>
+              <h3>Understand the mission</h3>
+              <p>We start with your constraints, not a template. Readiness assessment, stakeholder alignment, and clear-eyed scope definition before any build begins.</p>
+            </div>
+            <div class="method-step">
+              <span class="method-step-label">Design</span>
+              <h3>Build the right solution</h3>
+              <p>Architecture, tooling selection, and delivery planning shaped around what your team can actually operate — not the most technically impressive option.</p>
+            </div>
+            <div class="method-step">
+              <span class="method-step-label">Deliver</span>
+              <h3>Ship and measure</h3>
+              <p>Implementation, adoption support, and performance validation against the outcomes defined at the start. Results, not presentations.</p>
+            </div>
           </div>
         </section>
+
+        <div class="home-spacer" aria-hidden="true"></div>
       </div>
     </main>
 
+    <section class="cta-band">
+      <div class="container cta-band-inner">
+        <div class="cta-band-text">
+          <h2>Ready to turn complexity into advantage?</h2>
+          <p>Let's talk about your mission, timeline, and constraints.</p>
+        </div>
+        <a class="btn cta-band-btn" href="./contact.html">Start a conversation</a>
+      </div>
+    </section>
+
     <footer class="site-footer">
-      <div class="container footer-inner">
-        <span>contact@russell-innovation-group.com</span>
-        <span>&copy; 2026 Russell Innovation Group LLC</span>
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <a class="footer-logo-link" href="./index.html">
+            <img class="footer-logo" src="./browserlogo.png" alt="Russell Innovation Group logo" />
+            <span class="footer-brand-name">Russell Innovation Group</span>
+          </a>
+          <p class="footer-tagline">Mission-Driven Technical Delivery</p>
+          <p class="footer-desc">AI, BI, and technical consulting for government and enterprise organizations that demand execution-aware results.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./solutions.html">Solutions</a></li>
+            <li><a href="./projects.html">Projects</a></li>
+            <li><a href="./careers.html">Careers</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Contact</h4>
+          <ul class="footer-contact-list">
+            <li><a href="mailto:contact@russell-innovation-group.com">contact@russell-innovation-group.com</a></li>
+            <li>Sneads Ferry, NC</li>
+          </ul>
+          <a
+            class="footer-linkedin-btn"
+            href="https://www.linkedin.com/in/brandon-t-russell7/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >LinkedIn Profile ↗</a>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Company</h4>
+          <ul class="footer-contact-list">
+            <li>Russell Innovation Group LLC</li>
+            <li>AI · BI · Technical Consulting</li>
+          </ul>
+          <span class="footer-badge">Marine-Founded</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <span>&copy; 2026 Russell Innovation Group LLC. All rights reserved.</span>
+          <span>contact@russell-innovation-group.com</span>
+        </div>
       </div>
     </footer>
-    <script src="app.js?v=20260218" defer></script>
+    <script src="app.js?v=20260618" defer></script>
   </body>
 </html>
 

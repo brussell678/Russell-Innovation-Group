@@ -17,6 +17,9 @@
     <meta property="og:url" content="https://russell-innovation-group.com/" />
     <meta property="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="https://russell-innovation-group.com/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/png" href="./browserlogo.png" />
   </head>
@@ -24,85 +27,171 @@
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="./index.html">
-          <img class="brand-logo" src="./logo.jpg" alt="Russell Innovation Group logo" />
+          <img class="brand-logo" src="./browserlogo.png" alt="Russell Innovation Group logo" />
           <span>
             Russell Innovation Group
             <small>Mission-Driven Technical Delivery</small>
           </span>
         </a>
-        <nav class="site-nav" aria-label="Primary">
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="site-nav" id="primary-nav" aria-label="Primary">
           <a data-nav href="./index.html">Home</a>
           <a data-nav href="./about.html">About</a>
+          <a data-nav href="./solutions.html">Solutions</a>
           <a data-nav href="./projects.html">Projects</a>
+          <a data-nav href="./careers.html">Careers</a>
           <a data-nav href="./contact.html">Contact</a>
         </nav>
       </div>
     </header>
 
     <main>
-      <div class="container">
-        <section class="hero">
-          <article class="hero-card">
-            <h1>Turn complexity into operational advantage.</h1>
-            <p>
+      <!-- Full-bleed dark hero -->
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-content">
+            <p class="hero-eyebrow">Mission-Driven Technical Delivery</p>
+            <h1>Turn <span class="gradient-text">complexity</span> into<br />operational advantage.</h1>
+            <p class="hero-sub">
               Russell Innovation Group helps mission-driven organizations align strategy,
-              technology, and execution into secure systems that deliver measurable results. We do
-              not offer abstract strategy divorced from reality. We deliver execution-aware guidance
-              built for real-world constraints.
+              technology, and execution into secure systems that deliver measurable results.
+              We deliver execution-aware guidance built for real-world constraints.
             </p>
             <div class="cta-row">
               <a class="btn btn-primary" href="./contact.html">Start a conversation</a>
-              <a class="btn btn-secondary" href="./projects.html">View projects</a>
-              <a class="btn btn-secondary" href="./about.html">Read our approach</a>
+              <a class="btn btn-ghost" href="./projects.html">View our work</a>
             </div>
-          </article>
-          <aside class="hero-side panel">
-            <h2>Results, not buzzwords</h2>
-            <p>
-              Structured engagements that reduce adoption risk, improve decision quality, and build
-              lasting operational capability.
-            </p>
-          </aside>
-        </section>
+          </div>
+        </div>
+        <!-- Stats bar -->
+        <div class="hero-stats-bar">
+          <div class="container">
+            <div class="hero-stats-grid">
+              <div class="hero-stat">
+                <strong>33 hrs</strong>
+                <span>Saved per unit engagement</span>
+              </div>
+              <div class="hero-stat">
+                <strong>4+</strong>
+                <span>Projects delivered</span>
+              </div>
+              <div class="hero-stat">
+                <strong>3</strong>
+                <span>Active AI platforms</span>
+              </div>
+              <div class="hero-stat">
+                <strong>Marine-Founded</strong>
+                <span>Mission-driven leadership</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <section class="section">
+      <!-- Trust strip -->
+      <div class="trust-strip">
+        <div class="container trust-strip-inner">
+          <div class="trust-item">
+            <span class="trust-item-dot"></span>
+            <span class="trust-item-label"><strong>USMC-Founded</strong></span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-item-dot"></span>
+            <span class="trust-item-label"><strong>PMP</strong> Credentialed</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-item-dot"></span>
+            <span class="trust-item-label">LLC &middot; <strong>North Carolina</strong></span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-item-dot"></span>
+            <span class="trust-item-label"><strong>DoD-Aware</strong> Delivery</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-item-dot"></span>
+            <span class="trust-item-label">AI &middot; BI &middot; <strong>Technical</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Who We Serve -->
+      <div class="container">
+        <section class="section reveal">
           <h2>Who We Serve</h2>
           <p class="lead">
             We support leaders and teams operating in high-accountability environments where
             execution quality matters.
           </p>
           <div class="grid-3">
-            <article class="card">
+            <article class="card reveal">
               <h3>Executive Leadership</h3>
               <p>Decision support for modernization, adoption risk, and long-range capability.</p>
             </article>
-            <article class="card">
+            <article class="card reveal">
               <h3>Program Offices</h3>
               <p>Practical pathways from strategic intent to implementation under constraints.</p>
             </article>
-            <article class="card">
+            <article class="card reveal">
               <h3>Mission-Driven Teams</h3>
               <p>AI/BI systems designed for operational use, not presentation-layer optics.</p>
             </article>
           </div>
         </section>
+      </div>
 
-        <section class="section">
+      <!-- Marine-Founded identity callout -->
+      <div class="veteran-callout">
+        <div class="container veteran-callout-inner">
+          <div class="veteran-callout-text">
+            <p class="veteran-eyebrow">Marine-Founded &middot; Mission-Driven</p>
+            <h2>Military precision.<br />Applied to technology.</h2>
+            <p>Founded by a US Marine with experience in high-accountability operational environments, RIG brings the discipline, accountability, and mission-first mindset of military service to every AI and technical engagement.</p>
+          </div>
+          <div class="veteran-callout-stats">
+            <div class="vc-stat">
+              <strong>USMC Veteran</strong>
+              <span>Operational background &amp; mission-first leadership</span>
+            </div>
+            <div class="vc-stat">
+              <strong>PMP Credentialed</strong>
+              <span>Structured project delivery methodology</span>
+            </div>
+            <div class="vc-stat">
+              <strong>DoD-Aware</strong>
+              <span>Compliance-first systems &amp; secure workflows</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- How We Operate -->
+      <div class="container">
+        <section class="section reveal">
           <h2>How We Operate</h2>
           <p class="lead">
             Advisory and implementation under one discipline, built for secure and measurable
             outcomes.
           </p>
           <div class="grid-3">
-            <article class="card">
+            <article class="card reveal">
               <h3>Strategic Advisory &amp; Modernization</h3>
               <p>Readiness assessments, roadmap design, and risk-informed decision support.</p>
             </article>
-            <article class="card">
+            <article class="card reveal">
               <h3>Technical Delivery &amp; Implementation</h3>
               <p>Secure workflows, orchestration frameworks, dashboards, and adoption pathways.</p>
             </article>
-            <article class="card">
+            <article class="card reveal">
               <h3>AI/BI Decision Support</h3>
               <p>Responsible AI and analytics systems aligned to mission performance.</p>
             </article>
@@ -113,23 +202,66 @@
       </div>
     </main>
 
+    <section class="cta-band">
+      <div class="container cta-band-inner">
+        <div class="cta-band-text">
+          <h2>Ready to turn complexity into advantage?</h2>
+          <p>Let's talk about your mission, timeline, and constraints.</p>
+        </div>
+        <a class="btn cta-band-btn" href="./contact.html">Start a conversation</a>
+      </div>
+    </section>
+
     <footer class="site-footer">
-      <div class="container footer-inner">
-        <span>contact@russell-innovation-group.com</span>
-        <span>&copy; 2026 Russell Innovation Group LLC</span>
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <a class="footer-logo-link" href="./index.html">
+            <img class="footer-logo" src="./browserlogo.png" alt="Russell Innovation Group logo" />
+            <span class="footer-brand-name">Russell Innovation Group</span>
+          </a>
+          <p class="footer-tagline">Mission-Driven Technical Delivery</p>
+          <p class="footer-desc">AI, BI, and technical consulting for government and enterprise organizations that demand execution-aware results.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./solutions.html">Solutions</a></li>
+            <li><a href="./projects.html">Projects</a></li>
+            <li><a href="./careers.html">Careers</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Contact</h4>
+          <ul class="footer-contact-list">
+            <li><a href="mailto:contact@russell-innovation-group.com">contact@russell-innovation-group.com</a></li>
+            <li>Sneads Ferry, NC</li>
+          </ul>
+          <a
+            class="footer-linkedin-btn"
+            href="https://www.linkedin.com/in/brandon-t-russell7/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >LinkedIn Profile ↗</a>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Company</h4>
+          <ul class="footer-contact-list">
+            <li>Russell Innovation Group LLC</li>
+            <li>AI · BI · Technical Consulting</li>
+          </ul>
+          <span class="footer-badge">Marine-Founded</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <span>&copy; 2026 Russell Innovation Group LLC. All rights reserved.</span>
+          <span>contact@russell-innovation-group.com</span>
+        </div>
       </div>
     </footer>
-    <script src="app.js?v=20260218" defer></script>
+    <script src="app.js?v=20260618" defer></script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-

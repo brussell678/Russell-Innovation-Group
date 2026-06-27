@@ -1,11 +1,88 @@
 (function () {
+
+  // ── Hamburger nav toggle ──────────────────────────────────────────
+  var navToggle = document.getElementById('nav-toggle');
+  var siteNav   = document.getElementById('primary-nav');
+
+  if (navToggle && siteNav) {
+    navToggle.addEventListener('click', function () {
+      var isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      siteNav.classList.toggle('nav-open', !isOpen);
+      document.body.style.overflow = isOpen ? '' : 'hidden';
+    });
+
+    siteNav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        navToggle.setAttribute('aria-expanded', 'false');
+        siteNav.classList.remove('nav-open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && siteNav.classList.contains('nav-open')) {
+        navToggle.setAttribute('aria-expanded', 'false');
+        siteNav.classList.remove('nav-open');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  // ── Scroll reveal ─────────────────────────────────────────────────
+  if ('IntersectionObserver' in window) {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      revealObserver.observe(el);
+    });
+  } else {
+    // Fallback: show everything immediately
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      el.classList.add('revealed');
+    });
+  }
+
+  // ── Tab navigation ────────────────────────────────────────────────
+  var tabBtns    = document.querySelectorAll('.tab-btn');
+  var tabPanels  = document.querySelectorAll('.tab-panel');
+
+  if (tabBtns.length) {
+    tabBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var target = btn.getAttribute('data-tab');
+
+        tabBtns.forEach(function (b) {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        tabPanels.forEach(function (p) {
+          p.classList.remove('active');
+        });
+
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        var panel = document.getElementById('panel-' + target);
+        if (panel) panel.classList.add('active');
+      });
+    });
+  }
+
+  // ── Brand logo fallbacks ──────────────────────────────────────────
   var brandLogos = document.querySelectorAll(".brand-logo");
   brandLogos.forEach(function (logo) {
     var tried = 0;
     var fallbacks = [
+      "browserlogo.png",
       "assets/logo-light.png",
-      "assets/logo-light.jpg",
-      "assets/logo-light.jpeg",
+      "assets/logo-light.png",
       "assets/logo.png",
       "logo-light.png"
     ];

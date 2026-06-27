@@ -17,6 +17,9 @@
     <meta property="og:url" content="https://russell-innovation-group.com/careers" />
     <meta property="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="https://russell-innovation-group.com/careers" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/png" href="./browserlogo.png" />
   </head>
@@ -24,16 +27,29 @@
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="./index.html">
-          <img class="brand-logo" src="./logo.jpg" alt="Russell Innovation Group logo" />
+          <img class="brand-logo" src="./browserlogo.png" alt="Russell Innovation Group logo" />
           <span>
             Russell Innovation Group
             <small>Mission-Driven Technical Delivery</small>
           </span>
         </a>
-        <nav class="site-nav" aria-label="Primary">
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="site-nav" id="primary-nav" aria-label="Primary">
           <a data-nav href="./index.html">Home</a>
           <a data-nav href="./about.html">About</a>
+          <a data-nav href="./solutions.html">Solutions</a>
           <a data-nav href="./projects.html">Projects</a>
+          <a data-nav href="./careers.html">Careers</a>
           <a data-nav href="./contact.html">Contact</a>
         </nav>
       </div>
@@ -70,13 +86,67 @@
       </div>
     </main>
 
+    <section class="cta-band">
+      <div class="container cta-band-inner">
+        <div class="cta-band-text">
+          <h2>Have the skills? Let's connect.</h2>
+          <p>We respond to every resume submission within 2 business days.</p>
+        </div>
+        <a class="btn cta-band-btn" href="mailto:brandon.t.russell77@gmail.com?subject=Resume%20Submission%20-%20Russell%20Innovation%20Group&body=Hi%20Russell%20Innovation%20Group%2C%0D%0A%0D%0APlease%20find%20my%20resume%20attached.%0D%0A%0D%0AName%3A%0D%0ALinkedIn%3A%0D%0ABest%20email%3A%0D%0A">Send your resume</a>
+      </div>
+    </section>
+
     <footer class="site-footer">
-      <div class="container footer-inner">
-        <span>contact@russell-innovation-group.com</span>
-        <span>&copy; 2026 Russell Innovation Group LLC</span>
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <a class="footer-logo-link" href="./index.html">
+            <img class="footer-logo" src="./browserlogo.png" alt="Russell Innovation Group logo" />
+            <span class="footer-brand-name">Russell Innovation Group</span>
+          </a>
+          <p class="footer-tagline">Mission-Driven Technical Delivery</p>
+          <p class="footer-desc">AI, BI, and technical consulting for government and enterprise organizations that demand execution-aware results.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./solutions.html">Solutions</a></li>
+            <li><a href="./projects.html">Projects</a></li>
+            <li><a href="./careers.html">Careers</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Contact</h4>
+          <ul class="footer-contact-list">
+            <li><a href="mailto:contact@russell-innovation-group.com">contact@russell-innovation-group.com</a></li>
+            <li>Sneads Ferry, NC</li>
+          </ul>
+          <a
+            class="footer-linkedin-btn"
+            href="https://www.linkedin.com/in/brandon-t-russell7/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >LinkedIn Profile ↗</a>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Company</h4>
+          <ul class="footer-contact-list">
+            <li>Russell Innovation Group LLC</li>
+            <li>AI · BI · Technical Consulting</li>
+          </ul>
+          <span class="footer-badge">Marine-Founded</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <span>&copy; 2026 Russell Innovation Group LLC. All rights reserved.</span>
+          <span>contact@russell-innovation-group.com</span>
+        </div>
       </div>
     </footer>
-    <script src="app.js?v=20260218" defer></script>
+    <script src="app.js?v=20260618" defer></script>
   </body>
 </html>
 
