@@ -1580,6 +1580,12 @@ textarea:focus {
     display: flex;
   }
 
+  /* backdrop-filter on the header creates a new containing block that breaks
+     position:fixed on the nav overlay — remove it at mobile width */
+  .site-header {
+    backdrop-filter: none;
+  }
+
   .header-inner {
     min-height: 64px;
     padding: 0;
