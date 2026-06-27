@@ -1604,20 +1604,20 @@ textarea:focus {
     display: flex;
   }
 
-  /* Higher specificity (.site-nav.nav-open a = 0-2-1) beats desktop
-     .site-nav a (0-1-1) and forces links white on the dark overlay */
   .site-nav.nav-open a {
     font-size: 1.4rem;
     font-weight: 700;
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.85) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
     padding: 14px 36px;
     border-radius: 12px;
     width: 100%;
     max-width: 300px;
     text-align: center;
     font-family: 'Syne', sans-serif;
-    background: transparent;
-    display: block;
+    background: transparent !important;
+    display: block !important;
   }
 
   .site-nav.nav-open a:hover,
