@@ -1795,6 +1795,7 @@ textarea:focus {
 .veteran-callout {
   position: relative;
   overflow: hidden;
+  margin-top: 56px;
   background: linear-gradient(-45deg, #0a1628, #0d2236, #071c33, #091e35);
   background-size: 400% 400%;
 }
