@@ -56,59 +56,95 @@
     </header>
 
     <main>
-      <div class="container">
-        <section class="panel form-wrap">
-          <h1>Contact</h1>
-          <p class="lead">
-            Tell us about your mission, timeline, and constraints. We will follow up promptly.
-          </p>
 
-          <form
-            id="contact-form"
-            data-endpoint="/api/contact"
-            method="post"
-            novalidate
-          >
-            <label for="name">
-              Name
-              <input id="name" name="name" type="text" autocomplete="name" required />
-              <span class="error" data-error-for="name"></span>
-            </label>
-
-            <label for="email">
-              Email
-              <input id="email" name="email" type="email" autocomplete="email" required />
-              <span class="error" data-error-for="email"></span>
-            </label>
-
-            <label for="organization">
-              Organization
-              <input
-                id="organization"
-                name="organization"
-                type="text"
-                autocomplete="organization"
-                required
-              />
-              <span class="error" data-error-for="organization"></span>
-            </label>
-
-            <label for="message">
-              Message
-              <textarea id="message" name="message" required></textarea>
-              <span class="error" data-error-for="message"></span>
-            </label>
-
-            <label class="hidden" for="website">
-              Website
-              <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
-            </label>
-
-            <button class="btn btn-primary" type="submit">Submit</button>
-            <p class="success" id="form-success" hidden></p>
-          </form>
-        </section>
+      <div class="contact-hero">
+        <div class="container contact-hero-inner">
+          <p class="section-eyebrow">Get In Touch</p>
+          <h1>Let's Talk</h1>
+          <p class="lead">Tell us about your mission, timeline, and constraints. Every inquiry receives a personal response — no auto-replies.</p>
+        </div>
       </div>
+
+      <div class="container">
+        <div class="contact-layout">
+
+          <section class="contact-form-col reveal">
+            <form
+              id="contact-form"
+              data-endpoint="/api/contact"
+              method="post"
+              novalidate
+            >
+              <label for="name">
+                Name
+                <input id="name" name="name" type="text" autocomplete="name" required />
+                <span class="error" data-error-for="name"></span>
+              </label>
+
+              <label for="email">
+                Email
+                <input id="email" name="email" type="email" autocomplete="email" required />
+                <span class="error" data-error-for="email"></span>
+              </label>
+
+              <label for="organization">
+                Organization
+                <input
+                  id="organization"
+                  name="organization"
+                  type="text"
+                  autocomplete="organization"
+                  required
+                />
+                <span class="error" data-error-for="organization"></span>
+              </label>
+
+              <label for="message">
+                Message
+                <textarea id="message" name="message" required></textarea>
+                <span class="error" data-error-for="message"></span>
+              </label>
+
+              <label class="hidden" for="website">
+                Website
+                <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+              </label>
+
+              <button class="btn btn-primary" type="submit">Submit</button>
+              <p class="success" id="form-success" hidden></p>
+            </form>
+          </section>
+
+          <aside class="contact-sidebar reveal">
+
+            <div class="contact-card panel">
+              <h3 class="contact-card-heading">Direct Contact</h3>
+              <ul class="contact-card-list">
+                <li><a href="mailto:contact@russell-innovation-group.com">contact@russell-innovation-group.com</a></li>
+                <li>Sneads Ferry, NC</li>
+              </ul>
+              <a
+                class="btn btn-secondary"
+                href="https://www.linkedin.com/in/brandon-t-russell7/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >LinkedIn Profile ↗</a>
+            </div>
+
+            <div class="contact-card panel">
+              <h3 class="contact-card-heading">What to Expect</h3>
+              <ul class="contact-card-list">
+                <li>Personal response within 1 business day</li>
+                <li>30-minute discovery call to scope the engagement</li>
+                <li>Written proposal within 3–5 business days</li>
+              </ul>
+            </div>
+
+          </aside>
+
+        </div>
+      </div>
+
     </main>
 
     <footer class="site-footer">
@@ -150,6 +186,7 @@
           <ul class="footer-contact-list">
             <li>Russell Innovation Group LLC</li>
             <li>AI · BI · Technical Consulting</li>
+            <!-- CAGE: add your 5-character CAGE code here once confirmed -->
           </ul>
           <span class="footer-badge">Marine-Founded</span>
         </div>
@@ -164,13 +201,3 @@
     <script src="app.js?v=20260618" defer></script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
