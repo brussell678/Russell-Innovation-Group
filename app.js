@@ -66,6 +66,39 @@
     });
   }
 
+  // ── Theme toggle ──────────────────────────────────────────────────
+  var themeToggle = document.getElementById('theme-toggle');
+
+  function updateToggleUI(theme) {
+    if (!themeToggle) return;
+    var isDark = theme === 'dark';
+    themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    var label = themeToggle.querySelector('.theme-label');
+    if (label) label.textContent = isDark ? 'Light mode' : 'Dark mode';
+  }
+
+  if (themeToggle) {
+    updateToggleUI(document.documentElement.getAttribute('data-theme') || 'light');
+
+    themeToggle.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('rig-theme', next);
+      updateToggleUI(next);
+    });
+
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+        if (!localStorage.getItem('rig-theme')) {
+          var next = e.matches ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', next);
+          updateToggleUI(next);
+        }
+      });
+    }
+  }
+
   // ── Scroll reveal ─────────────────────────────────────────────────
   if ('IntersectionObserver' in window) {
     var revealObserver = new IntersectionObserver(function (entries) {
