@@ -2369,17 +2369,39 @@ textarea:focus {
 .theme-label { display: none; }
 
 @media (max-width: 640px) {
-  /* On mobile, toggle lives in the header bar next to the hamburger */
-  .theme-toggle {
-    width: 44px;
-    height: 44px;
-    border-width: 1.5px;
-    border-radius: 10px;
-    order: 1;
+  /* On mobile, toggle lives inside the nav overlay */
+  .site-nav.nav-open .theme-toggle {
+    display: flex;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    padding: 14px 36px;
+    border-radius: 12px;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.7) !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    background: transparent !important;
     margin-left: 0;
-    /* color and border-color inherit from base .theme-toggle (var(--muted) / var(--line))
-       which auto-update in dark mode — no hardcoded white needed */
+    margin-top: 6px;
   }
 
-  .nav-toggle { order: 2; }
+  .site-nav.nav-open .theme-toggle:hover,
+  .site-nav.nav-open .theme-toggle:focus-visible {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.07) !important;
+    border-color: var(--accent) !important;
+  }
+
+  .site-nav.nav-open .theme-label {
+    display: inline;
+    font-size: 1.4rem;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+  }
+
+  .site-nav.nav-open .icon-sun,
+  .site-nav.nav-open .icon-moon {
+    width: 20px;
+    height: 20px;
+  }
 }
