@@ -2311,6 +2311,23 @@ textarea:focus {
   border-color: rgba(79, 170, 217, 0.55);
 }
 
+/* Autofill: override browser chrome with white bg + dark text in all themes */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+  -webkit-text-fill-color: #111827 !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Filled state: match autofill appearance for keyboard-entered values */
+input.field-filled,
+textarea.field-filled {
+  background: #ffffff !important;
+  color: #111827 !important;
+}
+
 [data-theme="dark"] .error { color: #f87171; }
 [data-theme="dark"] .success { color: #4ade80; }
 

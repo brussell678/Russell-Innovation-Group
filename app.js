@@ -78,7 +78,7 @@
   }
 
   if (themeToggle) {
-    updateToggleUI(document.documentElement.getAttribute('data-theme') || 'light');
+    updateToggleUI(document.documentElement.getAttribute('data-theme') || 'dark');
 
     themeToggle.addEventListener('click', function () {
       var current = document.documentElement.getAttribute('data-theme');
@@ -239,6 +239,19 @@
   }
 
   var form = document.getElementById("contact-form");
+
+  // Consistent filled-state styling: white bg for all filled fields (matches autofill behavior)
+  if (form) {
+    form.querySelectorAll('input:not([type="hidden"]), textarea').forEach(function(field) {
+      function checkFilled() {
+        field.classList.toggle('field-filled', field.value.trim().length > 0);
+      }
+      field.addEventListener('input', checkFilled);
+      field.addEventListener('blur', checkFilled);
+      setTimeout(checkFilled, 500);
+    });
+  }
+
   if (!form) return;
 
   var fields = ["name", "email", "organization", "message"];
